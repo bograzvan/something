@@ -1,0 +1,4 @@
+name = Formular
+description = Altering user profile
+core = 7.x
+package = Softescu

@@ -1,0 +1,77 @@
+<?php
+function drupal_romania_forms_form_alter(&$form, &$form_state, $form_id){
+	global $user;
+	global $language;
+	if ($form_id == 'search_block_form') {
+		//dpm($form);
+		//dpm($user);
+		if ($language->language == 'en') {
+			$form['search_block_form']['#default_value'] = t('Search Drupal Romania');}
+		if ($language->language == 'ro'){
+			$form['search_block_form']['#default_value'] = t('Caută Drupal România');}
+	}
+	
+	if ($form_id == 'contact_site_form' || $form_id == 'comment_node_article_form' || 
+		$form_id == 'comment_node_evenimente_form') {
+		//dpm($form);
+		$form['actions']['submit']['#value'] = t("Trimite");
+	}
+	
+	if ($form_id == 'search_form') {
+		//dpm($form);
+		$form['basic']['keys']['#title'] = 'Caută Drupal România';
+		$form['basic']['submit']['#value'] = 'Caută';
+	}
+	
+	if ($form_id == 'user_register_form') {
+		//dpm($form);
+		$form['account']['name']['#title'] = 'Nume';
+		$form['account']['mail']['#title'] = 'E-mail';
+		$form['account']['name']['#description'] = 'Spațiile sunt permise; punctuația nu este permisă cu excepția punctelor, cratimelor, apostroafelor si underscorurilor';
+		$form['account']['mail']['#description'] = 'O adresă de e-mail validă. Toate mailurile de pe acest sistem vor fi trimise la această adresă. Adresa de e-mail nu va fi publică și va fi folosită doar dacă doriți să vă modificați parola sau la primirea unor știri sau notificări pe e-mail.';
+	}
+	
+	if ($form_id == 'comment_node_article_form') {
+		//dpm($user);
+		if($user->uid != 0){
+			$form['field_name2']['und'][0]['value']['#default_value'] = $user->name;
+			$form['field_e_mail']['und'][0]['value']['#default_value'] = $user->mail;			
+			$form['field_name2']['und'][0]['value']['#default_value'] = $user->name;
+			$form['field_e_mail']['#disabled'] = TRUE;
+			$form['field_name2']['#disabled'] = TRUE;
+		}
+	}
+	
+	if ($form_id == 'webform_client_form_1312') {
+		//dpm($form);
+		if ($language->language == 'ro') {
+			$form['actions']['submit']['#value'] = 'Mai departe';
+		}
+		if ($language->language == 'en') {
+			$form['actions']['submit']['#value'] = 'Next';
+		}
+	}
+	
+	if ($form_id == 'user_pass') {
+		//dpm($form);
+		$form['actions']['submit']['#value'] = t("Trimite o parola noua");
+		$form['name']['#title'] = t('Usernameul sau adresa de e-mail');
+	}
+	
+	if ($form_id == 'user_login') {
+		$form['actions']['submit']['#value'] = t('Logheazăte');
+		$form['name']['#title'] = t('User');
+		$form['pass']['#title'] = t('Parolă');
+		$form['name']['#description'] = t('Introdu userul de pe Drupal România');
+		$form['pass']['#description'] = t('Introdu parola ce corespunde usernameului de mai sus');
+	}
+}
+
+function drupal_romania_forms_user_presave(&$edit, $account, $category) {
+		//dpm($edit);
+		//dpm($account);
+		if (isset($edit['field_comunitate']['und'][0]['nid'])) {
+			$group = og_get_group('node', $edit['field_comunitate']['und'][0]['nid']);
+			og_group($group->gid, array('entity' => $account));
+		}
+}

@@ -1,0 +1,13 @@
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-field-full-image,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .nivo-slider-image{
+	display: none;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-title,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-body{
+	max-width: 100%;
+}
+
+#main-content {
+	width: 59.24%; /* (920px) 63.24% */
+}

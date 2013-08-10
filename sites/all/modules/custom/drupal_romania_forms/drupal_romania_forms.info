@@ -1,0 +1,4 @@
+name = Drupal Romania Forms Alter
+description = Form alter Drupal Romania
+core = 7.x
+package = Softescu

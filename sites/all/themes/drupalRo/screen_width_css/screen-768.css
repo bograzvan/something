@@ -1,0 +1,92 @@
+#main-content {
+	width: 53.24%; /* (780px) 57.24% */
+}
+
+#nivoTextTitle{
+	font-size: 12px;
+}
+
+#nivoText{
+	font-size: 12px;
+}
+
+.nivo-caption{
+	left: -200px;
+	width: 200px;
+	height: 150px;
+}
+
+.nivo-caption:after{
+	content: '.';
+	visibility: hidden;
+}
+
+#nivo-button a {
+    padding: 5px 14px 5px 5px;
+	font-size: 12px;
+}
+/* hide the menu and show the smaller menu -START*/
+#block-menu-menu-footer-menu ul {
+    display: none;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .nivo-slider-image{
+	display: none;
+}
+
+#block-block-38{
+	display: inline-block;
+	float: right;
+}
+
+#header{
+	height: 100%;
+}
+
+#header-block{
+	height: 100%;
+}
+
+
+#block-block-39{
+	visibility: hidden;
+}
+
+#block-menu-menu-login-menu {
+    float: none;
+}
+
+/* hide the menu and show the smaller menu -STOP*/
+
+#user-login-form{
+	left: 9.5%;
+	width: 310px;
+}
+
+#evenimente-body .ev-body-trimed{
+	display: none;
+}
+
+#search-block-form {
+    float: right;
+}
+
+#block-nivo-slider-nivo-slider .nivoSlider{
+	margin: 50px 5px 10px 50px;
+}
+
+#block-menu-menu-login-menu ul.menu {
+    margin-top: 0px;
+}
+
+#block-menu-menu-login-menu ul.menu li a.menu-348,
+#block-menu-menu-login-menu ul.menu li a.menu-349,
+#block-menu-menu-login-menu ul.menu li a.menu-350,
+#block-menu-menu-login-menu ul.menu li a.menu-351{ /* logout button */
+	display: inline-block;
+	width: 0px;
+	padding: 13px;
+	overflow: hidden;
+	background-position: center center;
+	font-size: 0.000001px;
+}

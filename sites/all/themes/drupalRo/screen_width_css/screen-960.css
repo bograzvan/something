@@ -1,0 +1,26 @@
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-field-full-image{
+	display: inline-block;
+	float: right;
+	overflow: auto;
+	position: relative;
+	top: -15px;
+	max-width: 100%;
+}
+
+#main-content {
+	width: 65.54%; /* (1024px) 67.26% */
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-field-full-image,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .nivo-slider-image{
+	display: block;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-title,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-body{
+	display: inline-block;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal{
+	left: 96.5%;
+}

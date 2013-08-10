@@ -1,0 +1,12 @@
+#main-content {
+    width: 100%;
+}
+
+#sidebar-second{
+	float: none;
+	margin: 0 auto;
+}
+
+#evenimente-body .ev-title{
+	font-size: 21px;
+}

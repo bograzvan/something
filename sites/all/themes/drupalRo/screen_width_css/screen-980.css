@@ -1,0 +1,48 @@
+/* hide the TB main menu */
+#block-tb-megamenu-main-menu{
+	display: none;
+}
+
+#block-tb-megamenu-menu-main-menu-mini{
+	display: inline-block;
+	float: right;
+	clear: both;
+	width: 100%;
+	height: 15px;
+}
+
+#tb-megamenu-menu-main-menu-mini{
+	position: relative;
+	top: -35px;
+}
+
+#tb-megamenu-menu-main-menu-mini .tb-megamenu-button{
+	float: right;
+}
+
+.tb-megamenu .nav-collapse .nav > ul{
+	position: relative;
+	left: -100px;
+}
+
+.tb-megamenu .nav-collapse .nav > li{
+	float: right;
+	clear: both;
+	width: 90px;
+	border-radius: 5px;
+}
+
+#tb-megamenu-menu-main-menu-mini .tb-megamenu .nav-collapse .nav > li > a{
+	color: #000;
+}
+
+#tb-megamenu-menu-main-menu-mini .tb-megamenu.animate .mega > .mega-dropdown-menu, .tb-megamenu.animate.slide .mega > .mega-dropdown-menu > div{
+	display: none;
+}
+
+/* the mini menu showing when clicking the mini button */
+.tb-megamenu .nav-collapse, .tb-megamenu .nav-collapse.collapse{
+	position: relative;
+	top: -50px;
+	left: -40px;
+}

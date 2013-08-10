@@ -1,0 +1,39 @@
+#main-content {
+	width: 48.24%; /* (768px) 57.24% */
+}
+
+#evenimente-body .ev-title{
+	font-size: 14px;
+	padding: 0;
+	min-width: 12px;
+}
+
+#main-content .view-evenimente .views-row span.date-display-single{
+	padding: 15px 5px 15px 5px;
+}
+
+.button_id{
+	display: none;
+}
+
+#evenimente-body .ev-field-locatie-label, 
+#evenimente-body .ev-field-parteneri-label, 
+#evenimente-body .ev-field-locatie, 
+#evenimente-body .ev-field-parteneri,
+#evenimente-body .ev-field-program{
+	float: none;
+	clear: both;
+	margin: 0 auto;
+	top: 0;
+	width: auto;
+	margin: 0 15px 0 15px;
+}
+
+#evenimente-body .ev-field-locatie-label, 
+#evenimente-body .ev-field-parteneri-label{
+	margin: 15px 15px 5px 15px;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal{
+	left: 93.5%;
+}

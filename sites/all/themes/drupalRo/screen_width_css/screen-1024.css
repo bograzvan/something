@@ -1,0 +1,44 @@
+#top-header-block,
+#drop-down-menu
+#header-block,
+#nivo-bar-block,
+#main-content-sidebar-second,
+#footer-block,
+#header-block,
+#admin-menu-wrapper{
+	margin: 0 auto;
+	padding: 0 20px 0 20px;
+}
+
+#main-content {
+	width: 67.26%; /* (full) 69.58% */
+}
+
+#block-system-main-menu ul li a{
+	padding: 10px 5px 15px 5px;
+}
+
+#interfacecontainerdiv,
+.nivo-directionNav,
+#block-views-nivo-slider-block .view-nivo-slider .views-slideshow-controls-top,
+#views_slideshow_controls_text_nivo_slider-block{
+	display: none;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block,
+#views_slideshow_cycle_main_section_nivo_slider-block{
+	width: 960px;
+}
+
+.views_slideshow_cycle_no_display,
+.views_slideshow_cycle_hidden, 
+.views_slideshow_cycle_controls, 
+.views_slideshow_cycle_image_count{
+	width: 100% !important;
+}
+
+#views_slideshow_cycle_teaser_section_misiune_slider-block{
+	position: relative;
+	width: 100% !important;
+	margin: 0% auto;
+}

@@ -1,0 +1,4 @@
+#main-content {
+	width: 66.54%; /* (1024px) 67.26% */
+	background-color: yellow;
+}

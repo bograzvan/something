@@ -1,0 +1,3632 @@
+/* Drupal 7 Framework - Created by André Griffin - modified by Razvan Bogdan
+------------------------------------------------
+
+Font sizes: 16px base font with 24px line-height
+------------------------------------------------
+       font-size / line-height / margin-top
+------------------------------------------------
+40px = 2.5em     / 1.2         / 0.6em
+32px = 2em       / 1.5         / 0.75em
+24px = 1.5em     / 1           / 1em
+20px = 1.25em    / 1.2         / 1.2em
+16px = 1em       / 1..5        / 1.5em
+14px = 0.875em   / 1.7143      / 1.7143em
+13px = 0.8125em  / 1.8462      / 1.8462em
+12px = 0.75em    / 2           / 2em
+10px = 0.625em   / 2.4         / 2.4em
+
+Equation for font sizing: 
+  Desired px ÷ Default (or parent) px = em size
+------------------------------------------------*/
+
+@import "reset.css";
+*{
+	word-wrap: word-break;
+}
+
+html{
+	height: 100%;
+}
+
+img,
+embed,
+video,
+object{
+	max-width: 100%;
+	height: auto;
+}
+
+/*global*/
+body{
+  height: 100%;
+  background: #f6f6f6;
+  color: #222;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  -moz-background-size:100% 100%;
+  background-size:100% 100%;
+  transition: all .2s linear; 
+  -o-transition: all .2s linear; 
+  -moz-transition: all .2s linear; 
+  -webkit-transition: all .2s linear;
+}
+
+#page{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1, .h1 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-top: 0.75em;
+}
+
+h2, .h2 {
+  font-size: 21px;
+  line-height: 1;
+  margin-bottom: 21px;
+  color: #0077b7;
+  text-decoration: none;
+}
+
+h3, .h3 {
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin-top: 1.2em;
+}
+
+h4, h5, h6, .h4, .h5, .h6 {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: 1.5em;
+}
+
+p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+a { color: #0077c0; text-decoration: none;}
+
+a:visited { color: #0077c0; }
+
+a:hover, a:active, li a.active  { color: #39f; text-decoration: underline;}
+
+a:focus { outline: thin dotted; }
+
+a:hover, a:active { outline: 0; }
+
+/* apply common styling after reset.css */
+
+li ul, li ol {  margin: 0; }
+ul, ol {  margin: 0;  padding-left: 1.5em; }
+ul {  list-style-type: disc; }
+ol {  list-style-type: decimal; }
+dl {  margin: 0 0 1.5em 0; }
+dl dt {  font-weight: bold; }
+dd {  margin-left: 1.5em; }
+hr {  display: none;  background: #bebebe;  border: none;  clear: both;  float: none;  height: 2px;  margin: 20px 0 1.4375em 0;  width: 100%; }
+fieldset {  border: 1px solid #ccc;  margin: 0 0 10px 0;  padding: 1.5em; padding-bottom: 0px; }
+table {  margin-bottom: 1.5em;  width: 100%; }
+th, tr, td {  vertical-align: middle; }
+th { padding-right: 1em; }
+
+.imagebg { line-height: 0 }
+
+input.form-checkbox, input.form-radio{
+	vertical-align: -15%;
+}
+
+.sticky-header th, .sticky-table th {  border-bottom: 3px solid #ccc;  padding-right: 1em;  text-align: left; }
+
+/* menus and item lists */
+.item-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.item-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
+ul.menu{
+  float: right;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul.menu li{
+  display: inline;
+  margin: 0;
+}
+ul.inline {
+  clear: both;
+}
+
+ul.inline li {
+  margin: 0;
+  padding: 0 1em 0 0;
+}
+
+ul.inline, ul.links.inline{
+	display: block;
+	padding-left: 0;
+}
+
+
+/* admin tabs */
+.tabs-wrapper {
+  margin: 0 0 1.4375em;
+}
+
+ul.primary {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.primary li a {
+  background: none;
+  border: none;
+  display: block;
+  float: left;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0 1em;
+}
+
+ul.primary li a:hover, ul.primary li a.active {
+  background: #666;
+  border: none;
+  color: #fff;
+}
+
+ul.primary li a:hover {
+  background: #888;
+  text-decoration: none;
+}
+
+ul.secondary {
+  background: #666;
+  border-bottom: none;
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+ul.secondary li {
+  border-right: none;
+}
+
+ul.secondary li a, ul.secondary li a:link {
+  border: none;
+  color: #ccc;
+  display: block;
+  float: left;
+  line-height: 1.5em;
+  padding: 0 1em;
+}
+
+ul.secondary li a:hover, ul.secondary li a.active {
+  background: #888;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul.secondary a.active {
+  border-bottom: none;
+}
+
+/*nodes*/
+.node {
+  margin-bottom: 1.5em;
+}
+
+/* tags */
+.field-name-field-tags {
+  margin: 0 0 1.5em;
+}
+
+.field-name-field-tags .field-item {
+  margin: 0;
+}
+
+.field-name-field-tags div {
+  display: inline;
+}
+
+/* profile */
+.profile {
+  margin: 1.5em 0;
+}
+
+.profile h3 {
+  border: none;
+}
+
+.profile dt {
+  margin-bottom: 0;
+}
+
+.profile dd {
+  margin-bottom: 1.5em;
+}
+
+.password-parent {
+  width: 36em;
+}
+
+/*comments*/
+#comments {
+  clear: both;
+  margin-top: 25px;
+}
+
+/*blocks*/
+.block {
+  margin-bottom: 0;
+}
+
+/* CSS SUPPORT */
+
+/* clear floats */
+.clear { clear: both; }
+
+/* display block */
+.display-block { display: block; }
+
+
+/* ALLERT: REMOVE THIS TO ADD A TITLE TO THE MAIN MENU IN THE HEADER REGION*/
+h2.block-title{
+	display: none;
+}
+
+/* MAIN LAYOUT */
+
+/* all the layout container */
+#container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+/*custom top-header-blocks*/
+#top-header{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: #82cfff;
+	height: 25px;
+}
+
+#top-header-block{
+	margin: 0 auto;
+	max-width: 960px;
+	height: 25px;
+}
+
+/*custom header blocks*/
+#header{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+}
+
+#header-block{
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+/*custom nivo bar blocks */
+#nivo-bar{
+	width: auto;
+	margin: 0;
+	padding: 0;
+	background-image: url('/sites/all/themes/drupalRo/img/NivoTopShadow.png'), url('/sites/all/themes/drupalRo/img/NivoBottomShadow.png'), url('/sites/all/themes/drupalRo/img/nivoBackground.png');
+	background-position: top center, bottom center;
+	background-repeat: repeat-x, repeat-x, repeat;
+	min-height: 90px;
+	max-height: 320px;
+	position: relative;
+}
+
+#nivo-bar-block{
+	margin: 0 auto;
+	padding: 0;
+	max-width: 960px;
+	min-height: 90px;
+	overflow: visible;
+}
+
+
+/* custom main container - contains the 
+main content and the sidebar second*/
+#main {
+	display: block;
+	background-color: #f5f5f5;
+	width: 100%;
+	margin: 28px 0 28px 0;
+	min-height: 610px;
+}
+
+#main-content-sidebar-second{
+	margin: 0 auto;
+	padding: 0;
+	margin-top: 0;
+	max-width: 960px;
+	clear: both;
+}
+
+#main-content {
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 69.58%;
+}
+
+#sidebar-second {
+	float: right;
+	padding: 0;
+	width: 280px;
+	margin-left: 12px;
+}
+
+/*custom footer container*/
+#footer {
+	position: relative;
+	bottom: 0;
+	background-color: #ededed;
+	border-top: 2px solid #d1d1d1;
+	display: block;
+	height: 110px !important;
+}
+
+#footer-block{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/* CONTENT*/
+
+/*//////////////////////
+///top header content///
+//////////////////////*/
+
+/*planeta drupal left logo*/
+#top-header-logo{
+	float: right;
+	position: relative;
+	margin: 2px 5px 0;
+	padding: 0;
+}
+
+/*menu*/
+#top-header-menu{
+	padding: 6px 0;
+	margin: 0;
+	float: right;
+}
+
+#top-header-logo{
+	padding: 5px 5px 0;
+	margin: 0;
+	float: right;
+}
+/*//////////////////
+///header content///
+//////////////////*/
+#header-block .region-header,
+#block-user-login{
+	position: relative;
+	overflow: visible;
+}
+
+/* the form that appears when you click the register button*/
+#user-login-form{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 34px;
+	left: 31.5%;
+	background-color: #dadada;
+	border-radius: 5px;
+	display: none;
+	width: 500px;
+	padding-left: 8px;
+}
+
+#user-register-form{
+	display: none;
+}
+
+#user-register-form{
+	left: 39%;
+}
+
+#user-register-form  .description,
+#user-register-form .form-type-textfield label{
+	display: none;
+}
+
+#edit-field-tip-persoana .form-type-checkboxes{
+	margin-left: 2px; 
+	font-size: 15px;
+}
+
+#edit-field-tip-persoana-und-pf- .form-checkbox label{
+	display: inline-block;
+}
+
+#user-register-form  .form-submit,
+#user-login-form .form-submit{
+	margin: 0 0 0 5px;
+	padding: 0;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 4px;
+	color: #000;
+	font-size: 11px !important;
+	float: left;
+	position: relative;
+	top: 3px;
+	font-size-adjust: 0.400;
+	width: 100%;
+	z-index: 999;
+}
+
+#user-register-form  .form-submit:hover,
+#user-login-form .form-submit:hover{
+	background-color: #1d1d1b;
+	border: 1px solid #fff;
+	color: #fff;
+}
+
+#block-system-user-menu ul.menu li.last{
+	display: none;
+}
+	
+#user-login-form .form-type-textfield .form-text, 
+#user-login-form  .form-type-password .form-text,	
+#user-register-form .form-item-mail input.form-text,
+#user-register-form .username{
+	margin: 0;
+	padding: 0;
+	width: 145px;
+	float: left;
+	margin-left: 2px;
+	position: relative;
+	top: 3px;
+	display: inline-block;
+	font-size: 16px;
+	font-size-adjust: 0.55;
+	z-index: 10px;
+}
+
+#user-register-form div,
+#user-login-form  div{
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+/*user and password labels*/
+#user-login-form .form-type-textfield label,
+#user-login-form  .form-type-password label{
+	display: none;
+}
+
+#user-login-form .item-list ul  li{
+	padding: 0;
+	margin: 0;
+}
+
+#user-login-form .item-list ul li.first {
+	display: none;
+}
+
+#user-login-form .item-list ul li.last{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	top: -4px;
+}
+
+#user-login-form .item-list ul li.last a {
+	padding: 0;
+	margin: 0;
+	color: #000;
+	background-color: #fff;
+	padding: 3px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+#user-login-form .item-list ul li.last a:hover{
+	background-color: #000;
+	color: #fff;
+	border: 1px solid #000;
+}
+
+.form-item, .form-actions{
+	padding: 0;
+}
+
+/* the login button of the login block, not the one on the login menu */
+#edit-submit.custom-search-button,
+#edit-submit--2.custom-search-button,
+#edit-submit--3.custom-search-button,
+#edit-submit--4.custom-search-button{
+	position: relative;
+	top: 4px;
+	padding: 5px;
+	display: inline-block;
+	border: 1px solid #000;
+	background-color: #fff;
+	border-radius: 5px;
+	color: #fff;
+}
+
+/* the login button of the login block, not the one on the login menu on hover*/
+#edit-submit.custom-search-button:hover,
+#edit-submit--2.custom-search-button:hover,
+#edit-submit--2.custom-search-button:hover{
+	background-color: #ebebeb;
+	color: #000;
+	border: 1px solid #000;
+}
+/*logo container*/
+#block-block-5{
+	display: inline-block;
+	margin: 0;
+    padding: 0;
+    z-index: 99;
+}
+
+/* the header menu that is always showing*/
+#block-menu-menu-login-menu{
+	float: right;
+}
+
+/*image for each menu link*/
+.menu-icon{
+	float: right;
+}
+
+/* customize the menu links*/
+#block-system-main-menu ul li a{
+	color: #0077c0;
+	font-size: 15px;
+	padding: 10px 15px 15px 10px;
+	border-radius: 10px 10px 0 0;
+	text-decoration: none;
+}
+
+#block-system-main-menu ul li.last a{
+	padding: 10px 5px 15px 10px;
+}
+
+/*
+#block-system-main-menu ul li a.menu-317,
+#block-system-main-menu ul li a.menu-318,
+#block-system-main-menu ul li a.menu-218*/
+
+/*menu list*/
+#block-menu-menu-login-menu ul.menu{
+	margin-top: 5px;
+}
+
+#block-menu-menu-login-menu ul.menu li a{
+	padding: 5px;
+}
+
+#block-menu-menu-login-menu ul.menu li.last a,
+#block-menu-menu-login-menu ul.menu li a.menu_icon{
+	background-position: 5px center;
+	padding-left: 25px;
+	margin-left: 2px;
+	border: 1px solid #c5c7c7;
+	border-radius: 5px;
+}
+
+#block-menu-menu-login-menu ul.menu li.last a{
+	background-image: url("/sites/all/themes/drupalRo/img/headerLoginContulMeu.png");
+    background-position: 10% center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+#block-menu-menu-login-menu ul.menu li.last a:hover,
+#block-menu-menu-login-menu ul.menu li a.menu_icon:hover{
+	background-color: #ebebeb;
+	text-decoration: none;
+} 
+
+/*header search block*/
+#block-menu-menu-login-menu ul.menu{
+	padding: 3px 0;
+}
+
+#main-content ol.search-results{
+	background-color: #ccc;
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
+
+/* the icons in the login and logout menu*/
+#block-menu-menu-login-menu ul.menu li a.menu-348{
+	background-image: url('/sites/all/themes/drupalRo/img/headerLoginAcasa.png');
+	background-position: 10% center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+
+#block-menu-menu-login-menu ul.menu li a.menu-349,
+#block-menu-menu-login-menu ul.menu li a.menu-351{
+	background-image: url('/sites/all/themes/drupalRo/img/headerLoginLogin.png');
+	background-position: 10% center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+
+#block-menu-menu-login-menu ul.menu li a.menu-350{
+	background-image: url('/sites/all/themes/drupalRo/img/headerLoginInregistrare.png');
+	background-position: 10% center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+
+li.expanded, li.collapsed, li.leaf{
+	padding: 0;
+}
+
+/* header search button */
+#edit-actions,
+#edit-actions--2{
+	position: relative;
+	top: 0px;
+	right: 2px;
+	margin: 0;
+	border-radius: 5px;
+}
+
+/* search button */
+
+
+/* search container: text and button*/
+#search-block-form{
+	float: right;
+}
+
+/*header search text box */
+#edit-search-block-form--2{
+	position: relative;
+	top: -5px;
+	background-color: #ededed;
+	border: 1px solid #000;
+	border-radius: none;
+	height: 24px !important;
+	margin-left: 5px;
+	margin-right: 2px;
+	font-size-adjust: 0.5;
+	display: inline-block;
+	font-size: 12px;
+	width: 150px;
+	-webkit-appearance: textfield;
+}
+
+.ce-cautai{
+	margin: 100px 0 15px 0;
+}
+
+#user-login-form .form-type-item{
+	display: none;
+}
+
+#interfacecontainerdiv{
+	float: right;
+	width: 125px;
+}
+
+#interfacecontainerdiv{
+	margin-top: 5px;
+	overflow: hidden;
+	height: 30px;
+}
+
+#interfacecontainerdiv iframe body div p{
+	display: none;
+}
+
+#content-panel .pane-noutati .pane-title{
+	display: none;
+}
+
+#content-panel .view-noutati .view-header > h2{
+	margin-bottom: 21px;
+}
+
+/*main-menu-768*/
+#block-block-38{
+	display: none;
+}
+
+/*///////////////////////
+///nivo slider content///
+///////////////////////*/
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block,
+#views_slideshow_cycle_main_section_nivo_slider-block{
+	height: 250px !important;
+}
+
+/* to align the menu when loged out */
+#planeta-drupal-drop-down{
+	display: none;
+	overflow: visible;
+	background-color: #1d1d1b;
+	width: 120px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	border-top: 7px solid #81ceff;
+	border-radius: 0 0 5px 5px;
+	opacity: 0.9;
+	z-index: 9999;
+}
+
+#planeta-drupal-drop-down ul li a{
+	color: #fff;
+	font-size: 14px;
+}
+
+#block-block-16{
+	position: relative;
+	overflow: visible;
+}
+
+#drop-down-menu{
+	display: none;
+	overflow: visible;
+	border-top: 7px solid #81ceff;
+	background-color: #1d1d1b;
+	width: 765px;
+	height: 180px;
+	position: absolute;
+	right: 0;
+	border-radius: 0 0 5px 5px;
+	opacity: 0.9;
+	z-index: 9999;
+}
+
+.drop-down-menu-proiecte,
+.drop-down-menu-companii,
+.drop-down-menu-membri,
+.drop-down-menu-siteuri-drupal{
+	display: inline-block;
+	float: left;
+	width: 100px;
+	margin-left: 70px;
+}
+
+.drop-down-menu-proiecte h2 a,
+.drop-down-menu-companii h2 a,
+.drop-down-menu-membri h2 a,
+.drop-down-menu-siteuri-drupal h2 a{
+	color: #81ceff;
+	font-size: 14px;
+}
+
+.drop-down-menu-proiecte span a,
+.drop-down-menu-companii span a,
+.drop-down-menu-membri span a,
+.drop-down-menu-siteuri-drupal span a,
+.drop-down-menu-proiecte a,
+.drop-down-menu-companii a,
+.drop-down-menu-membri a,
+.drop-down-menu-siteuri-drupal a{
+	display: inline-block;
+	color: #fff;
+	font-size: 14px;
+	clear: both;
+}
+
+.drop-down-menu-proiecte span a:hover,
+.drop-down-menu-companii span a:hover,
+.drop-down-menu-membri span a:hover,
+.drop-down-menu-siteuri-drupal span a:hover,
+.drop-down-menu-proiecte a:hover,
+.drop-down-menu-companii a:hover,
+.drop-down-menu-membri a:hover,
+.drop-down-menu-siteuri-drupal a:hover{
+	color: #06649f;
+	text-decoration: none;
+}
+
+/* the 'Blog' and 'Situri facute cu Drupal' (and others), words in the nivo bar showing on other pages*/
+#block-block-12,
+#block-block-19,
+#block-block-20,
+#block-block-22,
+#block-block-23,
+#block-block-24,
+#block-block-25,
+#block-block-26,
+#block-block-28,
+#block-block-29,
+#block-block-31,
+#block-block-32,
+#block-block-35,
+#block-block-36,
+#block-block-37{
+	display: block;
+	color: #81ceff;
+	font-size: 25px;
+	float: left;
+	position: absolute;
+	top: 24px;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block,
+#views_slideshow_cycle_main_section_nivo_slider-block{
+	max-width: 100% !important;
+	margin: 0 auto;
+	width: 880px !important;
+}
+
+#views_slideshow_controls_text_previous_nivo_slider-block{
+	float: left;
+	margin: 0;
+	background-image: url('/sites/all/themes/drupalRo/img/EvoLeftArrow.png');
+}
+
+#views_slideshow_controls_text_next_nivo_slider-block{
+	float: right;
+	margin: 0;
+	background-image: url('/sites/all/themes/drupalRo/img/EvoRightArrow.png');
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-slideshow-cycle-main-frame-row-item{
+	margin-bottom: 25px;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-slideshow-cycle-main-frame-row{
+	max-width: 100%;
+	width: 100% !important;
+	height: 10%;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-field-full-image{
+	display: inline-block;
+	float: right;
+	overflow: auto;
+	position: relative;
+	top: -15px;
+	max-width: 100%;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-field-full-image .field-content{
+	max-width: 100%;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-body,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-title{
+	display: inline-block;
+	float: left;
+	clear: left;
+	position: relative;
+	top: 25px;
+	max-width: 35%;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-body{
+	margin: 4px 0 40px 0;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-title a{
+	text-decoration: none;
+	font-size: 25px;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-body p{
+	font-size: 18px;
+	color: #fff;
+}
+
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-view-node{
+	display: inline-block;
+	float: left;
+	clear: left;
+	position: static;
+}
+
+#block-views-nivo-slider-block .views-slideshow-controls-bottom{
+	padding: 0 0 10px 0;
+	width: 100%;
+	position: static;
+}
+
+#block-views-nivo-slider-block .views-slideshow-controls-bottom #widget_pager_bottom_nivo_slider-block{
+	float: none;
+	margin: 0 auto;
+	width: 10%;
+}
+
+.view-misiune-slider .views-slideshow-controls-bottom{
+	width: 100%;
+}
+
+/*/////////////////
+///main content////
+/////////////////*/
+
+.panels-flexible-column-1-4 {
+    float: left;
+    width: 35%;
+}
+
+.panels-flexible-column-1-3 {
+    float: left;
+    width: 61%;
+}
+
+.pane-content .view-articole-recente .views-row{
+	overflow: auto;
+	margin-bottom: 6px;
+}
+
+#main-content .view .date-nav-wrapper .item-list ul li{
+	padding: 0;
+}
+
+#main-content .view-display-id-page_1 .calendar-calendar .views-field-title span a {
+	font-size: 11px;
+}
+
+#main-content-sidebar-second .tabs-wrapper {
+	display: inline;
+}
+
+#main-content-sidebar-second .tabs-wrapper ul.tabs{
+	position: relative;
+	top: 5px;
+	width: 100%;
+}
+
+#main-content-sidebar-second .tabs-wrapper ul.tabs li a{
+	border: 1px solid #dedede;
+	border-radius: 5px 5px 0 0;
+}
+
+#content-panel .view-articole-recente .views-field-field-image{
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 26%;
+	margin-right: 6px;
+}
+
+#content-panel .view-articole-recente .views-field-view-node{
+	margin: 10px 0 10px 0;
+	position: static;
+}
+
+/* Noutati - view */
+#block-views-noutati-block{
+	float: left;
+	width: 320px;
+}
+
+#main-content .submitted{
+	display: none;
+}
+
+#main-content .profile{
+	float: left;
+	clear: both;
+}
+
+#main-content .articol{
+	margin-top: 25px;
+}
+
+#main-content .sticky-enabled{
+	display: none;
+}
+
+.social-login-identities{
+	display: none;
+}
+
+/* the css for the black and yellow buttons - normal state*/
+#main-content .view-noutati .view-footer p a, #documente-mai-multe a, 
+#main-content .pane-views .view-noutati .view-footer span a,
+#main-content .pane-views .view-noutati-date .view-footer span a, #main-content #search-form .form-submit,
+#content-panel .view-noutati-date .views-field-view-node a, #user-register-form--2 .form-actions .form-submit,
+#content-panel .view-articole-recente .views-field-view-node a, #user-login .form-actions .form-submit,
+#nivo-button a, .button_id, #comment-form .form-wrapper .form-submit, #user-pass .form-actions .form-submit,
+#block-block-21 a, #content-panel .pane-noutati .pane-content .view-noutati .views-row p a.views-more-link,
+#article-read-more-link a, #main-content .view-grupuri .view-membri .view-footer a,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-view-node a,
+#main-content .view-blog .views-row div.article-read-more a, #publicatii-mai-multe a,/* from grupuri page, publicatii*/
+#main-content .view-grupuri .view-view-publicatii .views-field-view-node a,
+#main-content .view-grup .comunitate .views-field-view-node span a,
+#main-content .view-grup .views-row .views-field-view-node a{
+	background-color: #1d1d1b;
+	background-image: url('/sites/all/themes/drupalRo/img/RightWhiteArrow.png');
+	background-repeat: no-repeat;
+	background-position: 94% center;
+	border: 1px solid #c5c7c7;
+	border-radius: 5px;
+	padding: 5px 17px 5px 10px;
+	color: #fff;
+	margin: 23px 0 23px 0;
+}
+
+#block-block-21 a{
+	background-image: url('/sites/all/themes/drupalRo/img/square3x3.png');
+	background-position: 80% center;
+	padding-right: 25px;
+}
+
+html.js div.contextual-links-wrapper {
+    display: none;
+}
+
+#main-content .view-noutati-date{
+	margin-top: 25px;
+}
+
+#main-content #search-form .form-submit{
+	display: block;
+	clear: both;
+	float: left;
+}
+
+#content-panel .pane-noutati .pane-content .view-noutati .views-row p a.views-more-link{
+	display: block;
+	font-size: 11px;
+	width: 105px;
+	margin-top: 15px;
+}
+
+
+#main-content #search-form .form-submit,
+#user-register-form--2 .form-actions .form-submit,
+#user-login .form-actions .form-submit,
+#user-pass .form-actions .form-submit,
+#comment-form .form-wrapper .form-submit{
+	background-image: none;
+	padding: 4px 5px 4px 5px;
+	margin-top: 5px;
+}
+
+/* the css for the black and yellow buttons - hover state*/
+#main-content .view-noutati .view-footer p a:hover, #documente-mai-multe a:hover,
+#main-content .pane-views .view-noutati .view-footer span a:hover,
+#main-content .pane-views .view-noutati-date .view-footer span a:hover, #main-content #search-form .form-submit:hover,
+#content-panel .view-noutati-date .views-field-view-node a:hover, #user-register-form--2 .form-actions .form-submit:hover,
+#content-panel .view-articole-recente .views-field-view-node a:hover, #user-login .form-actions .form-submit:hover,
+.button_id:hover, #comment-form .form-wrapper .form-submit:hover, #user-pass .form-actions .form-submit:hover,
+#block-block-21 a:hover, #content-panel .pane-noutati .pane-content .view-noutati .views-row p a.views-more-link:hover,
+#article-read-more-link a:hover, #main-content .view-grupuri .view-membri .view-footer a:hover,
+#views_slideshow_cycle_teaser_section_nivo_slider-block .views-field-view-node a:hover,
+#main-content .view-blog .views-row div.article-read-more a:hover, #publicatii-mai-multe a:hover,/* from grupuri page, publicatii*/
+#main-content .view-grupuri .view-view-publicatii .views-field-view-node a:hover,
+#main-content .view-grup .comunitate .views-field-view-node span a:hover,
+#main-content .view-grup .views-row .views-field-view-node a:hover{
+	background-color: #ffdd00;
+	text-decoration: none;
+	color: #191c1b;
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+}
+
+#block-block-21 a:hover{
+	background-image: url('/sites/all/themes/drupalRo/img/square3x3black.png');
+}
+
+#main-content #search-form .form-submit:hover,
+#user-register-form--2 .form-actions .form-submit:hover,
+#user-login .form-actions .form-submit:hover,
+#user-pass .form-actions .form-submit:hover,
+#comment-form .form-wrapper .form-submit:hover{
+	background-image: none;
+}
+
+#content-panel .view-id-noutati .views-field-body p{
+	display: block;
+}
+
+/* the date in the views*/
+#main-content .view-evenimente .views-row span.date-display-single{
+	float: left;
+	clear: left;
+	background-color: #ffffff;
+	margin: 0 auto;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+	padding: 30px 16px 30px 16px;
+	min-width: 40px;
+	margin-right: 5px;
+}
+
+#content-panel .view-evenimente .view-header a{
+	text-decoration: none;
+}
+
+.row{
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* evenimente title & body*/
+#evenimente-body{
+	background-color: #fff;
+	border: 1px solid #d9d9d9;
+	border-radius: 5px;
+	margin: 0 0 5px 55px ;
+	padding: 5px;
+	overflow: hidden;
+	min-height: 40px;
+	max-width: 100%;
+}
+
+#evenimente-body:hover{
+	background-color: #d9ecf6;
+}
+
+#evenimente-body .ev-body-trimed,
+#evenimente-body .ev-body{
+	margin: 0 0 15px 15px;
+}
+
+#evenimente-body .ev-field-program,
+#evenimente-body .ev-field-program-label,
+#evenimente-body .ev-field-locatie-label,
+#evenimente-body .ev-field-parteneri-label,
+#evenimente-body .ev-field-locatie,
+#evenimente-body .ev-field-parteneri{
+	width: 43%;
+	float: left;
+	word-wrap: break-word;
+	margin-left: 15px;
+}
+
+#evenimente-body .ev-field-program-label,
+#evenimente-body .ev-field-locatie-label,
+#evenimente-body .ev-field-parteneri-label{
+	color: #0077c0;
+	font-weight: bold;
+}
+
+#evenimente-body .ev-field-program{
+	clear: left;
+}
+
+#evenimente-body .ev-field-locatie-label,
+#evenimente-body .ev-field-parteneri-label,
+#evenimente-body .ev-field-locatie,
+#evenimente-body .ev-field-parteneri{
+	float: right;
+	margin: 0 15px 0 0;
+	position: relative;
+	top: -19px;
+	width: 43%;
+}
+
+#evenimente-body .ev-field-parteneri-label{
+margin-top: 15px;
+}
+
+#evenimente-body .ev-field-sharethis{
+	display: inline-block;
+	float: right;
+	width: 60px;
+	clear: both;
+}
+
+#evenimente-body .ev-field-sharethis .block-sharethis{
+	width: 20px;
+	display: inline-block;
+}
+
+#evenimente-body .ev-title{
+	font-size: 21px;
+	margin-left: 15px;
+	color: #0077c0;
+}
+
+/*butonul detalii*/
+.button_id,
+#main-content .view-grup .view-footer p a{
+	float: left;
+	cursor: default;
+	background-color: #fff;
+	color: #000;
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+	background-repeat: no-repeat;
+	background-position: 95% center;
+	padding: 5px 17px 5px 10px;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.button_id{
+	float: right;
+}
+
+.button_id:hover{
+	background-color: #fff;
+	color: #000;
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+}
+/*//////////////////////////
+///sidebar second content///
+//////////////////////////*/
+
+/* descarca drupal logo*/
+#sidebar-descarca-drupal{
+	position: relative;
+	margin-top: 25px;
+}
+
+#sidebar-descarca-drupal img{
+	width: 215px;
+}
+
+/*descarca drupal text */
+#sidebar-descarca-drupal span{
+	font-size: 22px;
+	color: #fff;
+	line-height: 30px;
+	position: absolute;
+	left: 10%;
+	top: 12%;
+	z-index: 99;
+	width: 50%;
+}
+
+/*descarca drupal div*/
+#sidebar-drupalincifre{
+	clear: both;
+	margin-bottom: 10px;
+}
+
+/*descarca drupal title*/
+#sidebar-drupalincifre-titlu{
+	display: block;
+	font-size: 21px;
+	color: #0077c0;
+	position: relative;
+	top: 10px;
+}
+
+/*descarca drupal bold text*/
+#sidebar-drupalincifre-bold{
+	font-weight: bold;
+	color: #0077c0;
+}
+
+/*situri facute cu drupal titlu*/ 
+#block-views-situri-facute-cu-drupal-block .views-field-title span{
+	font-size: 21px;
+	display: block;
+	margin: 0;
+}
+
+#sidebar-second .view-categorii-taxonomy-term .field-content{
+	font-size: 14px;
+}
+
+#sidebar-second .view-categorii-taxonomy-term  .views-row{
+	margin: 5px 2px 5px 0;
+}
+
+#content-panel .views-field-title span a{
+	font-size: 13px;
+}
+
+#content-panel .view-articole-recente .views-field-title span a,
+#content-panel .view-noutati .views-field-title span a{
+	font-size: 21px;
+	text-decoration: none;
+}
+
+#content-panel .pane-noutati-date{
+	line-height: 16px;
+}
+
+#content-panel .pane-evenimente h2.pane-title,
+#content-panel .pane-articole-recente h2.pane-title,
+#content-panel .pane-noutati h2.pane-title a:hover{
+	display: none;
+}
+
+#content-panel .pane-noutati .pane-content .view-noutati .views-row a{
+	font-size: 21px;
+}
+
+#content-panel .pane-noutati .pane-content .view-noutati .views-row p a{
+	font-size: 11px;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row{
+	margin-top: 15px;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row div {
+	
+}
+
+#main-content .view-situri-facute-cu-drupal-list .view-content div span{
+	display: inline-block;
+	float: left;
+	width: 50px;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .view-content div div{
+	display: inline-block;
+	float: left;
+	margin: 1px 0 2px 0;
+}
+
+/*situri drupal title*/
+#sidebar-situridrupal{
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+#block-views-situri-facute-cu-drupal-block .views-field-body{
+	clear: both;
+}
+
+#main-content .view-taxonomy-term .views-field-title span{
+	font-size: 21px;
+	color: #0077c0;
+}
+
+/*situri drupal individual tag*/
+.highlights-showcase-field-tags-categorii a,
+#main-content .view-taxonomy-term .views-field-term-node-tid span a,
+#situri-drupal-tags a,
+#block-views-situri-facute-cu-drupal-block .views-field-field-tags span a,
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-field-field-tags div a{
+	color: #000;
+	background-color: #d9ecf6;
+	border: 1px solid #d9ecf7;
+	margin-left: 5px;
+	border-radius: 5px;
+	padding: 3px;
+	text-decoration: none;
+}
+
+#block-views-situri-facute-cu-drupal-block .view-situri-facute-cu-drupal .views-row .field-content{
+	margin: 5px 0 5px 0;
+}
+
+#block-views-situri-facute-cu-drupal-block .view-situri-facute-cu-drupal .views-row .field-content img{
+	width: 100%;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-field-title{
+	display: block;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-field-title span a{
+	font-size: 21px;
+	margin: 10px 0 10px 0;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-field-field-tags{
+	width: 300px;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-field-field-tags div{
+	float: left;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-label-field-tags div{
+	float: left;
+}
+
+/* situri drupal individual tag on hover*/
+.highlights-showcase-field-tags-categorii a:hover,
+#main-content .view-taxonomy-term .views-field-term-node-tid span a:hover,
+#situri-drupal-tags a:hover,
+#block-views-situri-facute-cu-drupal-block .views-field-field-tags span a:hover,
+#main-content .view-situri-facute-cu-drupal-list .views-row .views-field-field-tags div a:hover{
+	background-color: #dadada;
+}
+
+/* Hide 'Comentarii' title from the blog */
+#main-content .view-blog #articole-comentarii-title{
+	display: none;
+}
+
+#comment-body-add-more-wrapper .form-textarea-wrapper textarea{
+	top: 0;
+}
+
+#main-content-sidebar-second .articol #articole-comentarii-title{
+	clear: both;
+	margin-top: 25px;
+}
+
+.bean-sidebar-banners{
+	margin-top: 15px;
+}
+
+.bean-sidebar-banners .field-label{
+	display: none;
+}
+
+/*//////////////////
+///footer content///
+//////////////////*/
+
+#block-menu-menu-footer-menu ul{
+	float: left;
+}
+
+#block-menu-menu-footer-menu ul li{
+	display: inline-block;
+	margin: 15px 15px 15px 0;
+}
+
+
+#block-menu-menu-footer-menu ul li a{
+	text-decoration: none;
+}
+
+/* follow us and images*/
+#footer-block .block-sharethis div.sharethis-wrapper{
+	float: right;
+	height: 20px;
+	display: inline-block;
+	padding-top: 3px;
+	margin-top: 2px;
+	margin-right: 10px;
+}
+
+
+#block-block-10{
+	float: right;
+	display: inline-block;
+	height: 20px;
+	padding-top: 5px;
+}
+
+#block-block-10 img{
+	display: inline-block;
+}
+
+/* The paragraph at the bottom of the footer */
+#block-block-11{
+	display: inline-block;
+	clear: both;
+	height: 15px;
+}
+
+/*language switcher*/
+#block-locale-language{
+	display: inline-block;
+	float: right;
+	position: relative;
+	top: 5px;
+	margin-left: 2px;
+}
+
+.language-switcher-locale-url{
+	list-style-type: none;
+	padding: 0;
+}
+
+.language-switcher-locale-url li{
+	display: inline-block;
+	background-image: url("/sites/all/themes/drupalRo/img/englishFlag.png");
+	background-repeat: no-repeat;
+	padding: 4px;
+}
+
+.language-switcher-locale-url li.first{
+	background-image: url("/sites/all/themes/drupalRo/img/romanianFlag.png");
+	background-repeat: no-repeat;
+}
+
+.language-switcher-locale-url li a{
+	font-size: 7px;
+	position: relative;
+	top: -5px;
+	opacity:0.000001;
+	padding: 5px 0 7px 0;
+}
+
+/*///////////////
+//////BLOG///////
+///////////////*/
+
+#blog-title{
+	font-size: 21px;
+	color: #0077b7;
+	margin-top: 10px;
+}
+
+#posted-by-blog-links{
+	height: 20px;
+	width: 100%;
+}
+
+#blog-links,
+#posted-by{
+	float: left;
+	display: inline-block;
+	height: 20px;
+}
+
+#posted-by{
+	float: left;
+}
+
+#blog-links ul li{
+	float: left;
+	height: 20px;
+	width: 150px;
+}
+
+#posted-by div{
+	display: inline-block;
+	
+}
+
+#posted-by img{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#bubble{
+	position: relative;
+	top: 2px;
+	display: inline;
+}
+
+/* edit-subject--2 hides the subject field */
+#comment-form div.form-item-subject label,
+#blog-links ul li.comment-add,
+#blog-links-evenimente ul li.comment-add,
+#blog-links ul li.comment_forbidden,
+#comment-body-add-more-wrapper .form-item-comment-body-und-0-value label,
+#edit-comment-body-und-0-format, /* text format area just under the comments */
+#edit-subject, #edit-author--2, 
+#comment-form-wrapper .title{
+	display: none;
+}
+
+#edit-field-name,
+#edit-field-e-mail{
+	width: 400px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#edit-comment-body-und-0-value,
+#edit-field-name2-und-0-value,
+#edit-field-e-mail-und-0-value{
+	border-radius: 5px;
+	background-color: #ededed;
+	display: inline-block;
+	border: 1px solid #bbbbbb;
+}
+
+#edit-field-name2-und-0-value,
+#edit-field-e-mail-und-0-value{
+	width: 275px;
+	height: 25px;
+}
+
+#field-name2-add-more-wrapper,
+#field-e-mail-add-more-wrapper{
+	width: 320px;
+	overflow: hidden;
+}
+
+#field-name2-add-more-wrapper label,
+#field-e-mail-add-more-wrapper label{
+	float: right;
+	display: inline-block;
+	position: relative;
+	top: 5px;
+	color: #fff;
+}
+
+/* preview button */
+#edit-preview{
+	display: none;
+}
+
+#comments .field-name-field-name2{
+	width: auto;
+	float: left;
+	color: #0077c0;
+	margin-right: 10px;
+}
+
+#comments-date{
+	width: auto;
+	display: inline-block;
+}
+
+/* featured posts view */
+.view-id-featured_posts span.field-content a{
+	margin: 0 auto;
+}
+
+.indented{
+	margin-left: 50px;
+}
+
+#comments  .comment{
+	margin-bottom: 15px;
+	background-color: #fff;
+	padding: 50px;
+	border: 1px solid #d2d2d2;
+	border-radius: 10px;
+}
+
+#comments  .comment footer{
+	margin-top: 15px;
+}
+
+#comments  .comment footer ul li a{
+	background-color: #ccc;
+	border: 1px solid #d2d2d2;
+	padding: 5px;
+}
+
+#comments .field-name-comment-body div.field-item{
+	width: 80%;
+	display: inline-block;
+	word-wrap: break-word;
+	margin-top: 10px;
+}
+
+#comments .indented .comment ul li.comment-reply,
+#comments .indented .comment-by-viewer ul li.comment-reply,
+#comments .indented .comment-by-node-author ul li.comment-reply{
+	display: none;
+}
+
+/* user avatar */
+#comments div.picture,
+#comments div.user-picture{
+	display: inline-block;
+	float: left;
+	clear: left;
+	margin-right: 10px;
+}
+
+/* user avatar image */
+#comments div.picture img,
+#comments div.user-picture img{
+	width: 50px;
+	height: 50px;
+}
+
+/* labels of field names, they are hidden */
+#comments .field-name-comment-body div.field-label,
+#comments .field-name-field-name2 div.field-label,
+#main-content .field-name-field-e-mail .field-items,
+#main-content .user-picture, #main-content .picture{
+	display: none;
+}
+
+/* login or register to post comments */
+#blog-links-evenimente ul li.comment_forbidden,
+#comments .comment_forbidden{
+	display: none;
+}
+
+#comments h2.title{
+	display: none;
+}
+
+
+#featured-posts{
+	margin-top: 25px;
+}
+
+/*//////////////
+///BLOG VIEWS///
+//////////////*/
+
+#main-content .view-id-blog .view-header .views-row-1{
+	width: 100%;
+}
+
+#main-content .view-id-blog .view-header .views-row-1 a img{
+	width: 690px;
+	height: 270px;
+}
+
+#main-content .view-id-blog .views-row{
+	margin-bottom: 25px;
+	min-height: 300px;
+	position: relative;
+}
+
+/*the 4 bottom read more links in the blog section */
+.article-read-more{
+	float: left;
+	display: block;
+	clear: both;
+	position: absolute;
+	bottom: 0;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row-odd,
+#main-content .view-id-blog .views-row-odd{
+	float: left;
+	width: 47%;
+	clear: left;
+	clear: both;
+}
+
+#main-content .view-situri-facute-cu-drupal-list .views-row-even,
+#main-content .view-id-blog .views-row-even{
+	float: right;
+	width: 50%;
+	clear: right;
+}
+
+#main-content .view .item-list ul li a{
+	color: #000;
+}
+
+#main-content .view .item-list ul li a.pager-first{
+	background: url('/sites/all/themes/drupalRo/img/blogLeftBlackArrows.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#main-content .view .item-list ul li a.pager-previous{
+	background: url('/sites/all/themes/drupalRo/img/blogLeftBlackArrow.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#main-content .view .item-list ul li a.pager-next{
+	background: url('/sites/all/themes/drupalRo/img/blogRightBlackArrow.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin: 0;
+}
+
+#main-content .view .item-list ul li a.pager-last{
+	background: url('/sites/all/themes/drupalRo/img/BlogRightBlackArrows.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* hide the 'read more' link on main pages */
+#main-content .article-more-read-link{
+	display: none;
+}
+
+/* show the 'read more' link on blog pages */
+#main-content .view-blog .article-more-read-link{
+	display: inline-block;
+}
+
+#main-content .view-blog .views-row a .field-title{
+	display: block;
+	margin: 10px 0 10px 0;
+}
+
+.author_comments{
+	margin-bottom: 15px;
+}
+
+#main-content .field-name-body .field-items .field-item p{
+	clear: both;
+}
+
+#block-views-recent-comments-block .view-recent-comments .views-field,
+#block-views-featured-posts-block .view-featured-posts .views-field{
+	margin-bottom: 15px;
+}
+
+#block-views-recent-comments-block .view-header,
+#block-views-featured-posts-block .view-header{
+	margin-top: 25px;
+	margin-bottom: 15px;
+	color: #0077c0;
+}
+
+/*flippy pager on articles*/
+#main-content ul.flippy li a{
+	display: inline-block;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 5px 15px 5px 15px;
+	float: left;
+	text-decoration: none;
+	color: #000;
+}
+
+#main-content ul.flippy li{
+	clear: both;
+	padding: 0px;
+	margin: 0;
+}
+
+#main-content ul.flippy li.prev a{
+	float: left;
+}
+
+#main-content ul.flippy li.next a{
+	float: right;
+}
+
+#main-content ul.flippy{
+	display: block;
+	margin: 0px 0px 75px 0px;
+	padding: 0;
+}
+
+#main-content ul.flippy li.empty{
+	display: none;
+}
+
+/*////////////////
+////EVENIMENTE////
+////////////////*/
+
+#posted-by-evenimente-container{
+	width: 100%;
+	position: relative;
+	top: 30px;
+	height: 50px;
+	clear: both;
+	overflow: visible;
+}
+
+#posted-by-evenimente-container img{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#evenimente-title{
+	clear: both;
+	font-size: 21px;
+	float: left;
+	position: relative;
+	top: 15px;
+}
+
+#evenimente-body-custom p{
+	position: relative;
+	top: 15px;
+}
+
+#blog-links-evenimente ul{
+	height: 20px;
+	width: 48%;
+}
+
+#blog-links-evenimente ul li.sharethis{
+	float: left;
+	position: relative;
+	top: -2px;
+}
+
+#blog-links-evenimente ul li.comment_forbidden span{
+	display: none;
+}
+
+#posted-by-evenimente{
+	float: left;
+	display: inline;
+	height: 20px;
+}
+
+#main-content .field-name-field-gallery .field-item,
+#main-content .field-name-field-gallery .field-item img{
+	width: 100px;
+	height: 80px;
+	float: left;
+	margin: 5px 5px 5px 0;
+}
+
+/*////////////////
+/////CALENDAR/////
+////////////////*/
+
+table.full{
+	border: 1px solid #ccc;
+	overflow: visible;
+}
+
+
+.calendar-calendar th.days {
+	border: none;
+}
+
+/* never display this */
+#block-views-calendar-block-1 table.full td.calendar-agenda-hour,
+#block-views-calendar-block-1 table.full th.calendar-agenda-hour{
+	display: none;
+}
+
+table.full tr.multi-day td.multi-day{
+	background-color: lightblue;
+	border-radius: 5px;
+}
+
+table.full tr.multi-day td.multi-day a{
+	color: #fff;
+}
+
+table.full tr.multi-day td.single-day .view-item-calendar span.field-content a,
+table.full tr.single-day td.single-day .view-item-calendar span.field-content a{
+	background-color: yellow;
+	position: relative;
+}
+
+/* link to the calendar */
+#block-block-17{
+	border: 1px solid #dadada;
+	border-radius: 5px;
+	float: left;
+	margin-right: 5px;
+	clear: both;
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 15px;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.calendar-calendar .month-view .full td.date-box.today,
+.calendar-calendar .month-view .full tr td.single-day.today{
+    border: none;
+}
+
+.calendar-calendar .month-view .full td.date-box.today{
+	background-image: url('/sites/all/themes/drupalRo/img/calendar_today.png');
+	background-repeat: no-repeat;
+	background-position: right 10%;
+}
+
+/*/////////////////
+///SITEURI DRUPAL///
+/////////////////*/
+
+#content-panel .pane-content .view-situri-facute-cu-drupal-list .views-row-even{
+	float: left;
+	clear: left;
+	margin: 0;
+}
+
+#content-panel .pane-title{
+	display: none;
+}
+
+#sidebar-second .region-sidebar-second .block-block-8 p{
+	display: none;
+}
+
+#situri-drupal-field-image .field-name-field-image div.field-label{
+	display: none;
+}
+
+#situri-drupal-field-image,
+#situri-drupal-body,
+#situri-drupal-tags,
+#situri-drupal-link-to-site{
+	clear: both;
+	float: left;
+	margin-top: 10px;
+}
+
+#situri-drupal-title{
+	float: left;
+	font-size: 21px;
+}
+
+/*/////////////////
+//////TAXONOMY/////
+/////////////////*/
+
+#main-content .view-taxonomy-term .views-row-odd{
+	float: left;
+	width: 48%;
+}
+
+#main-content .view-taxonomy-term .views-row-even{
+	float: right;
+	width: 48%;
+}
+
+/*///////////////////////
+///USER PROFILE FORM/////
+///////////////////////*/
+
+#user-profile-form{
+	margin-top: 10px;
+}
+
+#user-profile-form .form-type-textfield{
+	margin-bottom: 10px;
+}
+
+#user-profile-form .form-item-current-pass{
+	display: none;
+}
+
+#user-profile-form #edit-contact{
+	display: none;
+}
+
+#field-user-name-add-more-wrapper .form-type-textfield,
+#user-profile-form .form-item-mail{
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: #dedede;
+}
+
+#user-profile-form .form-item-pass{
+	background-color: #dedede;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+#user-profile-form  fieldset{
+	background-color: #dedede;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+#user-profile-form  fieldset span.fieldset-legend{
+	background-color: #f5f5f5;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+}
+
+#user-profile-form .form-actions .form-submit,
+#contact-site-form .form-submit{
+	background-color: #000;
+	border-radius: 5px;
+	color: #fff;
+	border: 1px solid #C5C7C7;
+	padding: 4px 5px 4px 5px;
+	float: right;
+	margin: 10px 0 10px 0;
+	clear: both;
+}
+
+#user-profile-form .form-actions .form-submit:hover,
+#contact-site-form .form-submit:hover{
+	display: block;
+	background-color: #ffde00;
+	color: #000;
+}
+
+/*///////////////
+////FEED ITEMS///
+///////////////*/
+
+#feed-items-title{
+	font-size: 21px;
+	margin-top: 15px;
+}
+
+#main-content .view-feeds-defaults-feed-items .item-list{
+	margin-bottom: 10px;
+}
+
+/*///////////////
+////MESSAGES/////
+///////////////*/
+
+#main-content-sidebar-second .tabs-wrapper ul.secondary{
+	display: none;
+}
+
+/*///////////////////
+////////ERRORS///////
+///////////////////*/
+
+#error-403,
+#error-404{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+/*///////////////////
+/////SEARCH FORM/////
+///////////////////*/
+
+#main-content #search-form{
+	padding-top: 25px;
+}
+
+
+#search-form .search-advanced{
+	display: none;
+}
+
+#search-form .container-inline{
+	margin-top: 15px;
+}
+
+/*///////////////////
+////CONTACT FORM/////
+///////////////////*/
+
+#contact-site-form{
+	margin-top: 20px;
+}
+
+#contact-site-form .form-item label{
+	font-weight: bold;
+	float: left;
+	display: inline-block;
+	width: 100px;
+}
+
+#contact-site-form .form-type-checkbox{
+	margin-top: 2px;
+	width: 170px;
+}
+
+#contact-site-form .form-type-checkbox label{
+	width: 130px;
+	float: left;
+}
+
+#contact-site-form .form-actions .form-submit{
+	float: left;
+	display: block;
+	clear: both;
+	margin-left: 101px;
+	margin-top: 2px;
+}
+
+#contact-site-form .form-type-textfield,
+#contact-site-form .form-type-textarea{
+	width: 500px;
+	float: left;
+	margin-top: 5px;
+	display: inline;
+}
+
+#contact-site-form .form-type-textfield .form-text{
+	width: 390px;
+}
+
+#contact-site-form .form-type-textfield input,
+#contact-site-form  .form-type-textarea .form-textarea-wrapper .form-textarea{
+	background-color: #EDEDED;
+    border: 2px solid #BBBBBB;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+#contact-site-form .form-type-textfield input{
+	height: 25px;
+}
+
+#contact-site-form  .form-type-textarea .form-textarea-wrapper{
+	width: 680px;
+}
+
+#contact-site-form  .form-type-textarea .form-textarea-wrapper .form-textarea{
+	width: 580px;
+}
+
+#contact-site-form .form-type-checkbox{
+	float: left;
+	clear: both;
+	background-color: #EDEDED;
+	border: 2px solid #BBBBBB;
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: 100px;
+}
+
+#contact-site-form .form-item-mail .form-text,
+#contact-site-form .form-item-name .form-text,
+#contact-site-form .form-item-message .form-text{
+	float: left;
+	clear: right;
+}
+
+#contact-site-form .form-item-subject .form-text{
+	display: inline-block;
+}
+
+.grippie{
+	display: none;
+}
+
+/*/////////////////////
+////////NOUTATI////////
+/////////////////////*/
+
+#main-content .view-display-id-page_1 .views-row{
+	display: block;
+	clear: both;
+}
+
+#main-content .view-display-id-page_1 .view-footer .views-row a{
+	line-height: 24px;
+}
+
+#main-content .view-display-id-page_1 .views-row p a{
+	font-size: 11px;
+	clear: both;
+}
+
+#main-content .view-noutati .views-row a{
+	font-size: 21px;
+	display: block;
+}
+
+#main-content .view-noutati .views-row a.views-more-link{
+	display: block;
+	margin-top: 15px;
+	margin-left: 0;
+	border: 1px solid #000;
+	width: 40px;
+	border-radius: 5px;
+	padding: 5px 12px 5px 10px;
+	clear: both;
+	background-color: #fff;
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+	background-repeat: no-repeat;
+	background-position: 45% center;
+	color: #000;
+	font-size: 12px;
+}
+
+#main-content .view-display-id-page_1 .views-row .views-more-link:hover{
+	background-color: #000;
+	background-image: url('/sites/all/themes/drupalRo/img/RightWhiteArrow.png');
+	color: #fff;
+}
+
+
+/*/////////////////
+//////MEMBRI///////
+/////////////////*/
+#main-content .view-membri .user-picture{
+	display: inline-block;
+}
+
+#main-content .view-membri .views-field-name,
+#main-content .view-membri .views-field-picture{
+	display: inline-block;
+	height: 20px;
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#main-content .view-membri .views-row{
+	width: 30%;
+	display: inline-block;
+	float: left;
+	overflow: visible;
+}
+
+#main-content .view-membri .views-field-name{
+	width: 50%;
+	display: inline-block;
+}
+
+/*//////////////////
+///////GRUPURI//////
+//////////////////*/
+#main-content .view-showcase-highlights{
+	display: block;
+}
+
+#block-quicktabs-showcase-tabs{
+	display: block;
+}
+
+#main-content .view-grup .views-field-field-group-image{
+	clear: left;
+    display: inline-block;
+    float: left;
+	margin-right: 15px;
+}
+
+#main-content .view-grup .views-field-field-group-join div img{
+	border: 1px solid #d2d2d2 !important;
+	margin-top: 15px;
+}
+
+#main-content .view-grup .views-field-field-group-date div,
+#main-content .view-grup .views-field-field-group-members div,
+#main-content .view-grup .views-field-field-group-publications div,
+#main-content .view-grup .views-field-field-group-documents div,
+#main-content .view-grup .views-field-field-group-last-activity div{
+	display: inline-block;
+}
+
+#main-content .view-grup .views-field-field-group-date span,
+#main-content .view-grup .views-field-field-group-members span,
+#main-content .view-grup .views-field-field-group-publications span,
+#main-content .view-grup .views-field-field-group-documents span,
+#main-content .view-grup .views-field-field-group-last-activity span{
+	margin-right: 10px;
+	display: inline-block;
+}
+
+#main-content .view-grupuri .view-proiecte .views-field-field-image,
+#main-content .view-grupuri .view-companii .views-field-field-image{
+	float: left;
+	clear: right;
+	margin-right: 5px;
+}
+
+#main-content .view-grupuri .view-proiecte .views-row .views-field-field-image{
+	height: 120px;
+}
+
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal .views-row,
+#main-content .view-grupuri .view-situri-facute-cu-drupal .views-row{
+	float: left;
+}
+
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal{
+	width: 930px;;
+}
+
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal .views-row{
+	display: inline-block;
+	clear: none;
+}
+
+#main-content .view-grupuri .view-situri-facute-cu-drupal .views-row-2{
+	margin: 0 17px 0 17px;
+}
+
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal{
+	width: 700px;
+}
+
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal .views-field-field-tags span.field-content,
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal .views-field-field-tags{
+	max-width: 215px;
+}
+/*
+#main-content .view-showcase-highlights .view-footer .view-display-id-block_6,
+#main-content .view-showcase-highlights .view-footer .view-display-id-block_4,
+#main-content .view-showcase-highlights .view-footer .view-display-id-block_3{
+	display: none;
+}*/
+
+#main-content .view-showcase-highlights .view-situri-facute-cu-drupal .views-row{
+	height: 250px;
+}
+
+#main-content .view-grupuri .view-proiecte .views-row-odd,
+#main-content .view-grupuri .view-companii .views-row-odd{
+	float: left;
+	width: 48%;
+}
+
+#main-content .view-grupuri .view-proiecte .views-row-even,
+#main-content .view-grupuri .view-companii .views-row-even{
+	float: right;
+	width: 48%;
+}
+
+#main-content .view-grupuri .view-companii .views-field-field-website-body{
+	display: inline-block;
+	float: left;
+}
+
+#main-content .view-grupuri .view-companii .views-field-field-website-body span{
+	display: inline-block;
+}
+
+#main-content .view-grupuri .view-companii .views-field-field-website-body div{
+	display: inline-block;
+}
+
+#main-content .view-situri-facute-cu-drupal .views-row .views-field-title,
+#main-content .view-grupuri .view-proiecte .views-row .views-field-title,
+#main-content .view-grupuri .view-companii .views-row .views-field-title{
+	font-size: 15px;
+}
+
+#main-content .view-grupuri .view-proiecte .views-row .views-field-title{
+	margin-bottom: 20px;
+}
+
+#main-content.view-situri-facute-cu-drupal .views-row .views-field-title{
+	margin: 5px 0 5px 0;
+}
+
+#main-content .view-proiecte .view-companii,
+#main-content .view-grupuri .view-companii{
+	margin-bottom: 55px;
+}
+
+#main-content .views-field-field-tags .field-content a{
+	margin-right: 3px;
+	background-color: #dadada;
+	padding: 3px;
+	border-radius: 5px;
+	color: #000;
+}
+
+#main-content .views-field-field-tags .field-content a:hover{
+	background-color: #D9ECF6;
+}
+
+#main-content .view-grupuri .view-footer span a{
+	display: block;
+	clear: both;
+	float: right;
+}
+
+#main-content .view-situri-facute-cu-drupal .view-footer span a{
+	display: block;
+	clear: both;
+	float: right;
+	margin-top: 15px;
+}
+
+/*/////////////////////
+/////DESPRE DRUPAL/////
+/////////////////////*/
+
+#main-content .view-despre-drupal .view-header .view-prezentare{
+	margin-bottom: 27px;
+}
+
+#main-content .view-despre-drupal .view-header .view-prezentare .views-field-title{
+	font-size: 21px;
+	margin-bottom: 22px;
+	color: #0077b7;
+}
+
+#main-content .view-despre-drupal .view-header .view-prezentare .views-field-field-image{
+	display: inline-block;
+	float: left;
+	margin-right: 12px;
+}
+
+#main-content .view-despre-drupal .view-prezentare .view-header{
+	margin-bottom: 25px;
+}
+
+#main-content .view-documenta-ie{
+	display: block;
+}
+
+#main-content .view-down .view-footer span a,
+#main-content .view-documenta-ie .view-footer span a,
+#main-content .view-despre-drupal .view-header .view-prezentare .views-field-body a.views-more-link{
+	background-color: #1d1d1b;
+	background-image: url('/sites/all/themes/drupalRo/img/RightWhiteArrow.png');
+	background-repeat: no-repeat;
+	background-position: 90% center;
+	border: 1px solid #c5c7c7;
+	border-radius: 5px;
+	padding: 4px 15px 4px 5px;
+	color: #fff;
+	float: right;
+	margin: 23px 0 23px 0;
+	text-decoration: none;
+}
+
+#main-content .view-down .view-footer span a:hover,
+#main-content .view-documenta-ie .view-footer span a:hover,
+#main-content .view-despre-drupal .view-header .view-prezentare .views-field-body a.views-more-link:hover{
+	background-color: #ffdd00;
+	color: #191c1b;
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+}
+
+/*/////////////////////
+/////DOCUMENTATIE//////
+/////////////////////*/
+
+#main-content .view-documenta-ie{
+	display: block;
+	clear: both;
+}
+
+#main-content .view-despre-drupal .view-documenta-ie .views-row{
+	width: 220px;
+	float: left;
+	height: 25px;
+}
+
+#main-content .view-documenta-ie .views-field-field-image{
+	float: left;
+	width: 20px;
+	clear: left;
+	margin-right: 5px;
+}
+
+#main-content .view-documenta-ie .views-field-title{
+	display: block;
+	float: left;
+	width: 195px;
+}
+
+#main-content .view-documenta-ie .view-footer span a{
+    display: block;
+    float: right;
+}
+
+/*//////////////////
+//////DOWNLOAD//////
+//////////////////*/
+
+#main-content .view-down{
+	clear: both;
+}
+
+#main-content .view-down .views-row{
+	float: left;
+	clear: left;
+	width: 100%;
+}
+
+/*hide all the content of the feed, we will get what we need later*/
+#main-content .view-down .field-content > * {
+	display: none;
+}
+
+#main-content .view-down .field-content > .project-release-files{
+	display: inline-block;
+	float: left;
+	width: 190px;
+}
+
+
+/* display the news feed on drupal download -- CURENTLY HIDDEN*/
+#main-content .view-down .views-row-1 .field-content > p{
+	display: none;
+	float: right;
+	width: 350px;
+}
+
+#main-content .view-down table > thead{
+	display: none;
+}
+
+#main-content .view-down table tr > td.views-field-filehash{
+	display: none;
+}
+
+#main-content .view-down .views-row .views-field-title{
+	display: none;
+}
+
+#main-content .view-down .views-field > span,
+#main-content .view-down .views-row > span{
+	display: none;
+}
+
+#main-content .view-down .views-row-1 span{
+	display: inline-block;
+}
+
+.ultima_versiune_drupal{
+	float: left;
+	display: inline-block;
+	margin-right: 10px;
+	width: 108px;
+}
+
+.versiuni_anterioare{
+	float: left;
+	clear: both;
+}
+
+#main-content .view-down .project-release-files{
+	float: left;
+	display: inline-block;
+}
+
+#main-content .view-down tr{
+	background: none;
+	border: none;
+}
+
+#main-content .view-down table{
+}
+
+#main-content .view-down .views-row-1 table tr td{
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+#main-content .view-down .views-row-1 table tr td.views-field-file-name a{
+	background: -moz-linear-gradient(top, #005391, #0077bb);
+	background: -webkit-linear-gradient(top, #005391, #0077bb);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#005391), to(#0077bb));
+	background: -ms-linear-gradient(top, #005391, #0077bb);
+	background: -o-linear-gradient(top, #005391, #0077bb);
+	color: white;
+	padding: 5px 10px 5px;
+	border-radius: 5px;
+	display: block;
+}
+
+#main-content .view-down .views-row-1 table tr td.views-field-filesize{
+	padding-left: 10px;
+}
+
+#main-content .view-down .views-row table tr td a{
+	font-size: 12px;
+}
+
+#main-content .view-down .views-row-2,
+#main-content .view-down .views-row-3,
+#main-content .view-down .views-row-4{
+	display: inline-block;
+	width: 200px;
+	float: left;
+
+} 
+
+#main-content .view-down .views-row-2 table tr,
+#main-content .view-down .views-row-3 table tr,
+#main-content .view-down .views-row-4 table tr{
+	border-top: 1px solid #d5d5d5;
+	padding-bottom: 0px;
+}
+
+#main-content .view-down .views-row-4 table tr{
+	border-bottom: 1px solid #d5d5d5; 
+}
+
+#main-content .view-down .views-row-2 table tr td.views-field-filesize,
+#main-content .view-down .views-row-3 table tr td.views-field-filesize,
+#main-content .view-down .views-row-4 table tr td.views-field-filesize{
+	padding-left: 30px;
+}
+
+#main-content .view-down .views-row-2 table tr td,
+#main-content .view-down .views-row-3 table tr td,
+#main-content .view-down .views-row-4 table tr td{
+	padding: 6px 0 6px 0;
+}
+
+
+/* the mai multe button from drupal download news --CURENTLY HIDDEN */
+#main-content .view-down .view-footer span a{
+    display: none;
+    float: right;
+	position: relative;
+	top: -170px;
+	margin-top: 10px;
+}
+
+/* first paragraph of the drupal download info */
+.first-p{
+	font-weight: bold;
+}
+
+/*///////////////
+////SHOWCASE/////
+///////////////*/
+
+#main-content .view-situri-facute-cu-drupal .views-field .field-content{
+	margin: 12px 0 5px 0;
+}
+
+#main-content .view-situri-facute-cu-drupal{
+	clear: both;
+}
+
+#main-content .view-companii .views-field-field-image{
+	float: left;
+	display: inline-block;
+	margin-bottom: 20px;
+	margin-right: 14px;
+}
+
+#main-content .view-companii .views-field-field-title{
+	float: left;
+	display: inline-block;
+}
+
+#main-content .view-display-id-page_1 .views-field-title span a{
+	font-size: 21px;
+	
+}
+
+#main-content .view-display-id-page_1  .views-field-field-website-body{
+	display: inline-block;
+	margin: 24px 0 24px 0;
+}
+
+#main-content .view-display-id-page_1  .views-field-field-servicii{
+	display: block;
+}
+
+#main-content .view-display-id-page_1  .views-field-field-servicii .field-content,
+#main-content .view-display-id-page_1  .views-field-field-website-body .field-content{
+	display: inline-block;
+}
+
+/*/////////////////////////
+//TAXONOMY SERVICII BLOCK//
+/////////////////////////*/
+
+#block-views-taxonomy-servicii-block .item-list{
+	margin-top: 25px;
+}
+
+#block-views-taxonomy-servicii-block .item-list ul{
+	list-style-type: none;
+	font-size: 14px;
+}
+
+#block-views-taxonomy-servicii-block .item-list ul li{
+	margin-bottom: 13px;
+}
+
+/*///////////////////
+/////USER PROFILE////
+///////////////////*/
+
+#member-for,
+#user-profile-postari{
+	display: block;
+	float: left;
+	clear: both;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 35px;
+}
+
+#member-for .field{
+	display: block;
+	clear: both;
+}
+
+#user-profile-postari .comentarii-label,
+#user-profile-postari .comentarii-count,
+#member-for .field .field-label,
+#member-for .field .field-items{
+	display: inline-block;
+	float: left;
+}
+
+#user-profile-postari .comentarii-label,
+#member-for .field .field-label{
+	min-width: 200px;
+}
+
+#member-for h3{
+	display: none;
+}
+
+#member-for dl{
+	display: block;
+	float: left;
+	clear: both;
+}
+
+#member-for dd,
+#member-for dt{
+	display: block;
+	float: left;
+}
+
+#my-img{
+	margin-top: 25px;
+	height: 120px;
+	width: 110px;
+	float: left;
+}
+
+#main-content-sidebar-second li.social-login-identities{
+	display: none;
+}
+
+#field-numele-companiei-add-more-wrapper .form-type-textfield,
+#edit-field-tip-persoana .form-type-radios,
+#edit-field-nivel-programare .form-type-select,
+#edit-field-grupuri .form-type-select{
+	display: block;
+	background-color: #dedede;
+	border: 2px solid #ccc;
+	padding: 15px;
+	border-radius: 10px;
+	display: inline-block;
+	float: left;
+}
+
+#field-numele-companiei-add-more-wrapper .form-type-textfield,
+#edit-field-tip-persoana .form-type-radios,
+#edit-field-nivel-programare .form-type-select{
+	margin-left: 11px;
+	max-height: 40px;
+}
+
+#edit-field-grupuri .form-type-select{
+	max-height: 40px;
+}
+
+#edit-field-tip-persoana .form-type-radios .form-type-radio{
+	display: inline-block;
+}
+
+/*///////////////////
+///REQUESR PASWORD///
+///////////////////*/
+
+#field-numele-companiei-add-more-wrapper--2,
+#user-register-form--2,
+#user-login,
+#user-pass{
+	margin-top: 25px;
+}
+
+#main-content #search-form #edit-basic label,
+#field-numele-companiei-add-more-wrapper--2 label,
+#user-register-form--2 label,
+#user-login label,
+#user-pass label{
+	font-size: 15px;
+}
+
+#main-content #search-form #edit-basic label{
+	display: block;
+}
+
+#main-content #search-form #edit-basic #edit-keys,
+#field-numele-companiei-add-more-wrapper--2 .form-item .form-text,
+#user-register-form--2 .form-item .form-text,
+#user-login .form-item .form-text,
+#user-pass .form-type-textfield .form-text{
+	height: 25px;
+    width: 275px;
+	background-color: #EDEDED;
+    border: 1px solid #BBBBBB;
+    border-radius: 5px 5px 5px 5px;
+    display: inline-block;
+}
+
+#main-content #search-form #edit-basic #edit-keys{
+	float: left;
+}
+
+#user-register-form--2  .form-item-field-tip-persoana-und,
+#user-register-form--2  .form-item-mail{
+	margin-top: 15px;
+}
+
+/*/////////////////////////
+////HIGHLIGHTS SHOWCASE////
+/////////////////////////*/
+
+.highlights-showcase-image{
+	float: left;
+	margin-right: 10px;
+	width: 60%;
+}
+
+.highlights-showcase-title a{
+	font-size: 14px;
+}
+
+.highlights-showcase-field-rating,
+.highlights-showcase-site,
+.highlights-showcase-dezvoltator,
+.highlights-showcase-field-tags{
+	margin: 2px 0 2px 0;
+}
+
+.highlights-showcase-site-info-label,
+.highlights-showcase-site-info,
+.highlights-showcase-dezvoltator-info-label,
+.highlights-showcase-dezvoltator-info,
+.highlights-showcase-field-rating,
+.highlights-showcase-field-tags-categorii-label,
+.highlights-showcase-field-tags-categorii{
+	display: inline-block;
+}
+
+
+#main-content .view-showcase-highlights .view-content{
+	margin-top: 15px;
+}
+
+#main-content .view-showcase-highlights .skin-default .views-slideshow-cycle-main-frame {
+	width: 100% !important;
+	height: auto !important;
+	position: static !important:
+}
+
+#main-content .view-showcase-highlights .skin-default .views-slideshow-cycle-main-frame .views-slideshow-cycle-main-frame-row{
+	position: static !important;
+}
+
+#main-content .view-showcase-highlights .view-content .views-slideshow-pager-fields{
+	margin-top: 15px;
+	margin: 15px auto 0 auto;
+	display: block;
+	width: 70px;
+	float: none;
+}
+
+#main-content .view-showcase-highlights .view-footer{
+	display: inline-block;
+	margin: 0 auto;
+	width: 100px;
+}
+
+.views-slideshow-pager-field-item{
+	display: inline-block;
+}
+
+.views-content-field-content-img{
+	padding-right: 2px;
+}
+
+.views-field-field-pager-image img{
+	position: relative;
+	top: -4px;
+}
+
+.active .views-field-field-pager-image{
+	background-image: url('/sites/all/themes/drupalRo/img/EvoLightDot.png');
+	background-repeat: no-repeat;
+}
+
+.active .views-field-field-content-img{
+	background-image: url('/sites/all/themes/drupalRo/img/pager_active.png');
+	background-repeat: no-repeat;
+}
+
+.active .views-field-field-pager-image img,
+.active .views-field-field-content-img img{
+	visibility: hidden;
+}
+
+#main-content .view-showcase-highlights .view-content .views-slideshow-controls-bottom{
+	display: block;
+}
+
+/* listeaza dupa */
+#quicktabs-container-showcase_tabs .view-content .views-row{
+	float: left;
+	width: 33%;
+	display: inline;
+	height: 200px;
+}
+
+#quicktabs-container-showcase_tabs .view-content .views-row .views-field-field-image{
+	width: 80%;
+}
+
+#quicktabs-showcase_tabs.quicktabs-wrapper div.item-list ul.quicktabs-tabs{
+	width: 95px;
+	float: right;
+	position: relative;
+	top: 18px;
+	display: inline-block;
+}
+
+#quicktabs-showcase_tabs div.item-list ul.quicktabs-tabs li a{
+	color: #000;
+	border: 1px solid;
+	padding: 5px 7px 5px 7px;
+	border-radius: 5px;
+	background-color: #fff;
+	text-decoration: none;
+}
+
+#quicktabs-showcase_tabs div.item-list ul.quicktabs-tabs li a#quicktabs-tab-showcase_tabs-0,
+#quicktabs-showcase_tabs div.item-list ul.quicktabs-tabs li a#quicktabs-tab-showcase_tabs-1{
+	padding: 5px 9px 5px 9px;
+}
+
+#quicktabs-showcase_tabs div.item-list ul li a.ajax-processed:hover{
+	background-color: #dedede;
+}
+
+#main-content .view-showcase-highlights div.view-footer{
+	float: right;
+	display: inline-block;
+}
+
+#main-content ul.pager li.pager-current{
+	padding: 8px 12px 8px 12px;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	background-color: #dedede;
+}
+
+#main-content ul.pager li a{
+	padding: 8px 12px 8px 12px;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+#main-content ul.pager li a:hover{
+	background-color: #f3d534;
+}
+
+.views-field-field-tags{
+	max-width: 215px;
+}
+/*/////////////
+////MISIUNE////
+/////////////*/
+
+#main-content .view-misiune .views-field-field-misiune-image{
+	clear: left;
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    width: auto;
+}
+
+/*slider*/
+#widget_pager_bottom_misiune_slider-block{
+	display: block;
+    margin: 5px auto;
+    width: 29%;
+}
+
+#widget_pager_bottom_misiune_slider-block .jcarousel-clip ul{
+	margin-left: 15px;
+	list-style-image: none;
+    list-style-type: disc;
+}
+
+#widget_pager_bottom_misiune_slider-block .jcarousel-clip ul li{
+	max-width: 100% !important;
+	display: block;
+	margin: 2px 2px 5px 2px;
+}
+
+.jcarousel-skin-tango .jcarousel-clip-horizontal{
+	width: 100% !important;
+	height: 50px !important;
+}
+
+#main-content .view-footer .view-misiune-slider{
+	clear: both;
+	margin-top: 50px;
+	display: block;
+	height: auto;
+	padding-bottom: 0px !important;
+}
+
+#block-formblock-user-register .view-misiune-slider .views-slideshow-controls-top{
+}
+
+ul.jcarousel-list li{
+	width: 200px;
+	height: 43px !important;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal,
+.jcarousel-skin-tango .jcarousel-prev-horizontal{
+	background: url("/sites/all/themes/drupalRo/img/left-slider.png") no-repeat scroll 0 0 / 15px 60px transparent;
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    width: 15px;
+	top: 0 !important;
+	left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal{
+	background: url("/sites/all/themes/drupalRo/img/right-slider.png") no-repeat scroll 0 0 / 15px 60px transparent;
+	left: 97.5%;
+	border-radius: 0 3px 3px 0;
+}
+
+.views-slideshow-controls-text-previous{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background-image: url('/sites/all/themes/drupalRo/img/misiunesliderprev.png');
+	background-repeat: no-repeat;
+	font-size: 0.0001px;
+	float: left;
+	margin-left: 15px;
+}
+ 
+.views-slideshow-controls-text-next{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background-image: url('/sites/all/themes/drupalRo/img/misiuneslidernext.png');
+	background-repeat: no-repeat;
+	font-size: 0.0001px;
+	float: right;
+	margin-right: 10px;
+}
+ 
+.views-slideshow-controls-text-pause {
+	display: none;
+}
+
+#views_slideshow_controls_text_misiune_slider-block{
+	position: relative;
+	top: 15em;
+}
+
+#block-views-nivo-slider-block .view-nivo-slider .views-slideshow-controls-top{
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 960px;
+}
+
+#widget_pager_top_misiune_slider-block{
+	height: 0px;
+}
+
+/*block title */
+
+#views_slideshow_cycle_teaser_section_misiune_slider-block .views-slideshow-cycle-main-frame-row{
+	width: 100% !important;
+	overflow: hidden;
+}
+
+#views_slideshow_cycle_teaser_section_misiune_slider-block .views-slideshow-cycle-main-frame-row .views-field-field-ddblock-image{
+	clear: left;
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	width: 63%;
+}
+#views_slideshow_cycle_teaser_section_misiune_slider-block .views-field-title{
+	background-color: #333;
+	display: inline-block;
+	position: relative;
+	left: -21.5%;
+	top: -11px;
+	width: 80%;
+	height: 40px;
+	opacity: 0.7;
+}
+
+#views_slideshow_cycle_teaser_section_misiune_slider-block{
+	height: auto;
+}
+
+#views_slideshow_cycle_teaser_section_misiune_slider-block .views-field-title h2{
+	color: #438aab;
+	width: 250px;
+	margin: 10px auto;
+	cursor: pointer;
+}
+
+#widget_pager_bottom_misiune_slider-block ul li{
+	width: 74px !important;
+}
+
+#widget_pager_bottom_misiune_slider-block ul li. img{
+	border: 5px solid #80c6ff;
+	height: 56px;
+	max-width: 100% !important;
+}
+
+#widget_pager_bottom_misiune_slider-block ul li.activeSlide{
+	max-width: 27% !important;
+	padding-right: 2px;
+	height: 50px !important;
+}
+
+#widget_pager_bottom_misiune_slider-block ul li.activeSlide img{
+	border: 1px solid #80c6ff;
+	height: 90%;
+}
+
+#widget_pager_bottom_misiune_slider-block ul a{
+	display: none;
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal{
+	margin: 0px;
+}
+
+/*////////////////
+//////GRUPURI/////
+////////////////*/
+
+#main-content .view-view-publicatii,
+#main-content .view-view-publicatii .view-header{
+	display: inline-block;
+}
+
+#main-content .view-view-publicatii{
+	margin-top: 25px;
+}
+
+#main-content .view-grupuri .view-view-publicatii .views-row .views-field-field-publicatii-image{
+	float: left;
+	display: inline-block;
+	min-height: 150px;
+	margin-right: 10px;
+}
+
+#main-content .view-grupuri .view-view-publicatii .views-row .views-field-title{
+	font-size: 14px;
+}
+
+#main-content .view-grupuri .view-view-publicatii .views-row .views-field-nid{
+	margin-bottom: 15px;
+}
+
+#main-content .view-grupuri .view-view-publicatii .views-row{
+	margin-bottom: 15px;
+	float: left;
+	width: auto;
+}
+
+#publicatii-mai-multe{
+	display: inline-block;
+	float: right;
+	color: #000;
+}
+
+#publicatii-publicatie-noua a{
+	display: inline-block;
+	float: left;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 5px 17px 5px 10px;
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+	background-repeat: no-repeat;
+	background-position: 95% center;
+	color: #000;
+	text-decoration: none;
+}
+
+#main-content .view-grupuri .view-membri .view-header{
+	display: inline-block;
+	margin-top: 25px;
+}
+
+#main-content .view-grupuri .view-membri .view-header h2 a{
+	text-decoration: none;
+	color: #0077c0;
+}
+
+/*////////////////
+////DOCUMENTE/////
+////////////////*/
+
+#main-content .view-grupuri .view-documente{
+	display: inline-block;
+	margin-top: 25px;
+	float: left;
+	clear: both;
+}
+
+#main-content .view-grupuri .view-documente .item-list{
+	margin-top: 75px;
+}
+
+#main-content .view-documente .views-row{
+	display: inline-block;
+	width: 30%;
+}
+
+#main-content .view-documente .views-row .file img,
+#main-content .view-documente .views-row .file a{
+	float: left;
+	margin-right: 5px;
+}
+
+#main-content .view-documente .views-field-field-documente-file .file{
+	display: inline-block;
+}
+
+#main-content .view-documente .view-header{
+	color: #0077b7;
+	margin-bottom: 15px;
+}
+
+#documente-mai-multe{
+	float: right;
+}
+
+/*////////////////
+////COMUNITATE////
+////////////////*/
+
+#main-content .view-grup .comunitate{
+	width: 100%;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+}
+
+.views-field-view-node{
+	margin: 25px 0 25px 0;
+}
+
+#main-content .view-grupuri .view-grup .views-row .views-field-view-node{
+	clear: both;
+	float: right;
+	margin: 15px 0 15px 0;
+}
+
+/*///////////////////////
+////GROUP REGISTRATION///
+///////////////////////*/
+
+#webform-client-form-1312{
+	margin-top: 25px;
+}
+
+#webform-client-form-1312 div .form-actions .form-submit{
+	background-image: url('/sites/all/themes/drupalRo/img/RightBlackArrow.png');
+	background-repeat: no-repeat;
+	background-position: 95% center;
+	padding: 5px 10px 5px 5px;
+	background-color: #fff;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	float: right;
+	position: relative;
+	top: -50px;
+	right: 20px;
+}
+
+#webform-component-creaza-un-grup-nou .fieldset-wrapper{
+	width: 180px;
+}
+
+#edit-submitted-creaza-un-grup-nou-creza-un-grup-nou{
+	width: 98.5%;
+	position: relative;
+	top: 15px;
+	background-color: #e4e4e4;
+}
+
+#webform-component-creaza-un-grup-nou {
+	border: none;
+	background-color: #fff;
+	border-radius: 10px;
+	min-height: 230px;
+}
+
+#webform-component-creaza-un-grup-nou legend span{
+	display: inline-block;
+	position: relative;
+	top: 25px;
+	padding-left: 50px;
+}
+
+html.js fieldset.collapsible .fieldset-legend{
+	background: url('/sites/all/themes/drupalRo/img/comunitategrupaddavatar.png');
+	background-repeat: no-repeat;
+	background-position: left 0%;
+}
+
+#webform-component-creaza-un-grup-nou legend span a{
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	top: 5px;
+}
+
+.form-textarea-wrapper textarea {
+    -moz-box-sizing: border-box;
+	-webkit-box-sizing: padding-box;
+	position: relative;
+	top: 25px;
+	background-color: #e4e4e4;
+	width: 100%;
+}
+
+/*////////////////////
+///RESPONSIVE MENU////
+////////////////////*/
+
+.responsive-menus.responsified span.toggler {
+    background: none repeat scroll 0 0 #333333;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 1.35em;
+    padding: 10px;
+	margin-bottom: 5px;
+    text-align: center;
+    width: 1.4em;
+	float: right !important;
+}
+
+/*////////////////////
+//////NICE MENU///////
+////////////////////*/
+
+/* big menu - START */
+#block-nice-menus-1{
+	float: right;
+	box-shadow: none;
+}
+
+#block-nice-menus-1 ul li {
+    background-color: #81ceff;
+    border: none;
+	border-radius: 5px 5px 0 0;
+    float: left;
+	margin-left: 5px;
+	padding: 4px;
+}
+
+#block-nice-menus-1 ul li.menuparent{
+	background-image: url("/sites/all/themes/drupalRo/img/headerBlueDownArrow.png");
+	background-position: 90% center;
+}
+
+#block-nice-menus-1 ul li  > a{
+	color: #0077c0;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+#block-nice-menus-1 ul li > ul{
+	top: 2.6em;
+	left: -5px;
+	border: none;
+} 
+
+#block-nice-menus-1 ul li ul li{
+	border-radius: 0px;
+	border: none;
+	background-color: #1d1d1b;
+}
+
+#block-nice-menus-1 ul li ul li a{
+	color: #fff;
+}
+
+#block-nice-menus-1 ul li ul li a:hover{
+	color: #0077c0;
+}
+/* big menu - STOP */
+
+/* small menu - START */
+
+.responsified{
+	max-height: 50px;
+	overflow: visible !important;
+}
+
+.responsified .toggler{
+	margin: 3px;
+	overflow: visible !important;
+}
+
+.responsified #block-nice-menus-1{
+	width: 100%;
+	background: transparent !important;
+	width: auto;
+	overflow: visible !important;
+	left: -86px;
+	top: 52px;
+	position: relative;
+}
+
+.responsified #block-nice-menus-1 ul {
+	overflow: hidden !important;
+	position: absolute;
+	display: block;
+}
+
+.responsified #block-nice-menus-1 ul li{
+	overflow: visible !important;
+	border-radius: 0px;
+	border: none;
+	width: 120px;
+	background-image: none;
+	clear: both;
+}
+
+.responsified #block-nice-menus-1 ul li ul{
+	display: none !important;
+	padding-right: 100px !important;
+	position: absolute !important;
+	float: right;
+}
+
+/* small menu - END */
+
+/* planeta drupal menu - START */
+
+#block-nice-menus-2{
+	float: right;
+	overflow: visible !important;
+}
+
+#block-nice-menus-2 ul{
+	overflow: visible !important;
+}
+
+#block-nice-menus-2 ul > li{
+	background-color: #81ceff;
+	background-image: url("/sites/all/themes/drupalRo/img/planetaDrupalMenuArrow.png") !important;
+	background-position: right center;
+	border: none;
+	overflow: visible !important;
+	position: relative;
+}
+
+#block-nice-menus-2 ul li > a{
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+#block-nice-menus-2 ul li ul {
+	border: none !important;
+	top: 2.04em;
+	left: -12%;
+	background-color: #1d1d1b;
+}
+
+#block-nice-menus-2 ul li ul li{
+	background-image: none !important;
+	height: 25px !important;
+	border: none !important;
+	background-color: #1d1d1b;
+	padding: 10px;
+}
+
+#block-nice-menus-2 ul li ul li > a{
+	text-transform: lowercase;
+	background-color: #1d1d1b;
+}
+
+#block-nice-menus-2 ul li ul li a:hover{
+	color: #0077c0;
+}
+/* planeta drupal menu - END */
